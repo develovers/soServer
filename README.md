@@ -14,3 +14,5 @@ $node index
 ```
 
 Después abrir un navegador y escribir la url: http://localhost:3030
+
+Puedes abrirlo en varias pestañas de tu navegador y chatear entre ellas.
