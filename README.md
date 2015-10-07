@@ -10,9 +10,10 @@ Si es que no lo tienes ya, debes instalar Node.js y npm.
 Desde un terminal sitúate dentro de la carpeta soServer y ejecuta:
 ```
 $npm install
-$node index
+$bower install
+$node server/index
 ```
 
-Después abrir un navegador y escribir la url: http://localhost:3030
+Después abrir un navegador y escribir la url: http://localhost:9000
 
 Puedes abrirlo en varias pestañas de tu navegador y chatear entre ellas.
