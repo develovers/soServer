@@ -1,0 +1,115 @@
+<html lang="en" ng-app="StarterApp">
+<head>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    
+      <!-- injector:css -->
+      <link rel="stylesheet" href="app/app.css">
+      <!-- endinjector -->
+    <!-- endbuild -->
+</head>
+<body layout="row" ng-controller="AppController">
+<div layout="column" class="relative" layout-fill role="main">
+    <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="showAdd($event)">
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-button>
+    <md-toolbar ng-show="!showSearch">
+        <div class="md-toolbar-tools">
+            <h3>
+                SO Server Test
+            </h3>
+            <span flex></span>
+            <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                <ng-md-icon icon="search"></ng-md-icon>
+            </md-button>
+            <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+                <ng-md-icon icon="more_vert"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-toolbar class="md-hue-1" ng-show="showSearch">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="showSearch = !showSearch" aria-label="Back">
+                <h3 flex="10">
+                    <ng-md-icon icon="arrow_back"></ng-md-icon>
+                    Back
+                </h3>
+            </md-button>
+            <md-input-container md-theme="input" flex>
+                <label>&nbsp;</label>
+                <input ng-model="search.message" placeholder="Enter search">
+            </md-input-container>
+            <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+                <ng-md-icon icon="search"></ng-md-icon>
+            </md-button>
+            <md-button aria-label="Open Settings" ng-click="showListBottomSheet($event)">
+                <ng-md-icon icon="more_vert"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content flex md-scroll-y>
+        <ui-view layout="column" layout-fill layout-padding>
+            <div class="inset" hide-sm></div>
+            <div layout="row" layout-align="center center">
+                <md-card flex-gt-sm="90" flex-gt-md="80">
+                    <md-card-content>
+                        <h2>Messages</h2>
+                        <md-list>
+                            <md-item ng-repeat="item in activity | filter:search">
+                                <md-item-content>
+                                    <div class="md-tile-left inset" hide-sm>
+                                        <user-avatar></user-avatar>
+                                    </div>
+                                    <div class="md-tile-content">
+                                        <h3>{{item.who}}</h3>
+                                        <h4>{{item.message}}</h4>
+                                        <p>
+                                            {{item.lon}} , {{item.lat}}
+                                        </p>
+                                    </div>
+                                </md-item-content>
+                                <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+                                <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+                            </md-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </ui-view>
+    </md-content>
+</div>
+
+ <!-- build:js({client,node_modules}) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/socket.io-client/socket.io.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-socket-io/socket.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-aria/angular-aria.js"></script>
+      <script src="bower_components/angular-material/angular-material.js"></script>
+      <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+      <!-- endbower -->
+    <!-- endbuild -->
+
+        
+        <!-- build:js({.tmp,client}) app/app.js -->
+        
+          <!-- injector:js -->
+          <script src="app/app.js"></script>
+          <script src="app/app.controller.js"></script>
+          <script src="app/dialog/dialog.controller.js"></script>
+          <script src="app/list-bottom-sheet/list-bottom-sheet.controller.js"></script>
+     
+          <script src="components/directives/use-avatar/use-avatar.directive.js"></script>
+          <script src="components/factories/socket.factory.js"></script>
+          <!-- endinjector -->
+        <!-- endbuild -->
+</body>
+</html>
