@@ -3,28 +3,18 @@ angular.module('StarterApp').controller('AppController',
         $scope, $mdBottomSheet, $mdDialog, socketio, $q) {
 
         $scope.activity = [{
-            message: 'I will be in your neighborhood doing errands',
-            who: '666987654',
+            message: 'Hey there, I am using develoverschat!',
+            who: 'David',
             lat: 42.2345,
             lon: -5.634
         }, {
-            message: 'Wish I could come out but I am out of town this weekend',
-            who: '666987654',
+            message: 'Tengo hambre',
+            who: 'Ivan',
             lat: 42.2345,
             lon: -5.634
         }, {
-            message: 'Do you have Paris recommendations? Have you ever been?',
-            who: '698543123',
-            lat: 42.2345,
-            lon: -5.634
-        }, {
-            message: 'Have any ideas of what we should get Heidi for her birthday?',
-            who: '698543123',
-            lat: 42.2345,
-            lon: -5.634
-        }, {
-            message: 'We should eat this: Grapefruit, Squash, Corn, and Tomatillo tacos',
-            who: '666987654',
+            message: 'Voy a unirme a los Develovers',
+            who: 'Herve',
             lat: 42.2345,
             lon: -5.634
         }, ];
